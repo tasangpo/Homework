@@ -37,6 +37,11 @@ class Simon
   end
 
   def require_sequence
+    puts 'Enter the sequence'
+    user_guess = gets.chomp.split(' ')
+    if user_guess != seq
+      game_over = true
+    end
 
   end
 
@@ -45,11 +50,11 @@ class Simon
   end
 
   def round_success_message
-
+    puts 'Sucessful round, congrats!'
   end
 
   def game_over_message
-
+    puts 'Game Over'
   end
 
   def reset_game
@@ -58,3 +63,6 @@ class Simon
     @seq = []
   end
 end
+
+g = Simon.new
+g.play
