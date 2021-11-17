@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h1 id="header"> Music App </h1>
+
+    <% if logged_in? %>
+      <h2> Welcome <%= current_user.email %> </h2>
+      <form action="<%= session_url %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <%= auth_token %>
+        <input type="submit" value="Logout">
+    <% else %>
+      <a class="link" href="<%= new_session_url %>"> Login </a>
+      <br>
+      <a class="link" href="<%= new_user_url %>"> Sign up </a>
+    <% end %>
+
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+        <%= error %>
+      <% end %>
+    <% end %>
+
+    <% if flash[:messages] %>
+      <% flash[:messages].each do |message| %>
+        <%= message %>
+      <% end %>
+    <% end %>
+
+    <img src="https://musically.com/wp-content/uploads/2021/03/lo-fi-1000x500.jpg">
+
+    <%= yield %>
+  </body>
+</html>
+
+
+<button href="">

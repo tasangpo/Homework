@@ -1,0 +1,9 @@
+<h1> You are viewing <%= @band.name %></h1>
+
+<form action="<%= band_url(@band) %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <%= auth_token %>
+    <input type="submit" value="Delete Band">
+
+</form>
+
