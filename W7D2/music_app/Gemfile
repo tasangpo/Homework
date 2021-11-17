@@ -62,7 +62,6 @@ group :test do
   gem 'chromedriver-helper'
   gem 'factory_bot_rails', :require => false
   gem 'faker'
-  gem 'capybara'
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'rspec-rails'
